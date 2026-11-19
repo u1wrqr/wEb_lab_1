@@ -1,0 +1,163 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1c1c1c;
+  background-color: #eceff1;
+}
+
+.block {
+  padding: 16px;
+  border: 2px solid #1c1c1c;
+  transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.block__title {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.block__text { margin: 0; }
+
+
+.block--header { background-color: #1e5bff; color: #ffffff; }
+.block--header:hover { background-color: #0b3bb8; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); }
+
+.block--left { background-color: #ffc800; }
+.block--left:hover { background-color: #ffe066; box-shadow: inset 0 0 0 4px #1e5bff; }
+
+.block--top { background-color: #ffc800; }
+.block--top:hover { background-color: #ff9f1c; color: #ffffff; }
+
+.block--footer { background-color: #1e5bff; color: #ffffff; }
+.block--footer:hover { background-color: #0b3bb8; box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4); }
+
+.block--main { background-color: #ffffff; }
+.block--main:hover { background-color: #f1f7ff; box-shadow: 0 0 0 4px #1e5bff; }
+
+.menu { margin: 0; padding: 0; list-style: none; }
+.menu__link {
+  display: block;
+  padding: 6px 8px;
+  color: #1c1c1c;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+.menu__link:hover { background-color: #1e5bff; color: #ffffff; }
+
+.article__title { margin: 0 0 12px; font-size: 28px; color: #0b3bb8; }
+.article__lead { margin: 0 0 12px; }
+.article__accent { color: #d62828; font-weight: bold; }
+.article__note { display: block; margin: 12px 0; padding: 8px 12px; background-color: #fff4cc; border-left: 4px solid #ffc800; }
+.article__list { margin: 12px 0; padding-left: 24px; }
+.article__item { padding: 2px 0; transition: color 0.2s; }
+.article__item:hover { color: #d62828; }
+.article__paragraph { margin: 0 0 12px; }
+
+.layout {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "top"
+    "left"
+    "main"
+    "footer";
+}
+.layout > .block--header { grid-area: header; }
+.layout > .block--top    { grid-area: top; }
+.layout > .block--left   { grid-area: left; }
+.layout > .block--main   { grid-area: main; }
+.layout > .block--footer { grid-area: footer; }
+
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: 220px 1fr;
+    grid-template-areas:
+      "header header"
+      "left   top"
+      "left   main"
+      "footer footer";
+  }
+}
+
+
+.layout {
+    display: grid;
+    gap: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "header"
+    "top"
+    "left"
+    "main"
+    "footer";
+}
+.layout > .block--header { grid-area: header; }
+.layout > .block--top,
+.layout > .block--right  { grid-area: top; }
+.layout > .block--left   { grid-area: left; }
+.layout > .block--main   { grid-area: main; min-height: 420px; }
+.layout > .block--footer { grid-area: footer; }
+
+@media (min-width: 768px) {
+    .layout {
+        grid-template-columns: 220px 1fr;
+        grid-template-areas:
+      "header header"
+      "left   top"
+      "left   main"
+      "footer footer";
+    }
+}
+
+.layout-table {
+    width: 100%;
+    max-width: 824px;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 12px;
+    table-layout: fixed;
+}
+.layout-table__col-left { width: 220px; }
+.layout-table__left,
+.layout-table__cell { vertical-align: top; }
+
+.layout-table .block--header,
+.layout-table .block--top,
+.layout-table .block--footer {
+    height: 85px;
+}
+
+.layout-table__row--grow .layout-table__cell { height: 420px; }
+
+@media (max-width: 767px) {
+    .layout-table,
+    .layout-table tbody,
+    .layout-table colgroup,
+    .layout-table tr,
+    .layout-table td {
+        display: block;
+        width: 100%;
+    }
+    .layout-table {
+        max-width: 100%;
+        border-spacing: 0;
+    }
+    .layout-table colgroup { display: none; }
+    .layout-table td,
+    .layout-table .block--header,
+    .layout-table .block--top,
+    .layout-table .block--footer {
+        margin-bottom: 12px;
+        height: auto !important;
+    }
+    .layout-table__row--grow .layout-table__cell { height: auto; }
+}
