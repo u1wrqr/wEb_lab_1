@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лабораторна робота №1 – розмітка таблицею</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+  <table class="layout-table">
+    <colgroup>
+      <col class="layout-table__col-left">
+      <col>
+    </colgroup>
+    <tr class="layout-table__row">
+      <td class="layout-table__cell block block--header" colspan="2">
+        <h2 class="block__title">Блок 1</h2>
+      </td>
+    </tr>
+    <tr class="layout-table__row">
+      <td class="layout-table__cell layout-table__left block block--left" rowspan="2">
+        <h2 class="block__title">Блок 2</h2>
+      </td>
+      <td class="layout-table__cell block block--top">
+        <h2 class="block__title">Блок 5</h2>
+      </td>
+    </tr>
+    <tr class="layout-table__row layout-table__row--grow">
+      <td class="layout-table__cell block block--main">
+      <h1 class="article__title">Блок 4</h1>
+          <p>
+              <b>Основний блок</b>
+              <i>з текстовим текстом.</i>
+          </p>
+
+          <h2>Текст</h2>
+
+          <ul>
+              <li>Пункт 1</li>
+              <li>Пункт 2</li>
+              <li>Пункт 3</li>
+          </ul>
+      </td>
+    </tr>
+    <tr class="layout-table__row">
+      <td class="layout-table__cell block block--footer" colspan="2">
+        <h2 class="block__title">Блок 3</h2>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
